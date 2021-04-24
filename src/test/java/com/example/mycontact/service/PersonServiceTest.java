@@ -1,5 +1,6 @@
 package com.example.mycontact.service;
 
+import com.example.mycontact.controller.dto.PersonDto;
 import com.example.mycontact.domain.Birthday;
 import com.example.mycontact.domain.Block;
 import com.example.mycontact.domain.Person;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.lang.model.element.Name;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,24 +21,13 @@ class PersonServiceTest {
     @Autowired
     private PersonRepository personRepository;
 
-    @Test
-    void  getPeopleExcludeBlocks(){
-        List<Person> result = personRepository.findByBlockIsNull();
-        result.forEach(System.out::println);
-    }
+
 
 
     @Test
     void  getPeopleByName(){
 
         List<Person> result = personRepository.findByName("martin");
-        result.forEach(System.out::println);
-    }
-
-    @Test
-    void  getPeopleByBloodType(){
-
-        List<Person> result = personRepository.findByBloodType("A");
         result.forEach(System.out::println);
     }
 
@@ -59,5 +50,6 @@ class PersonServiceTest {
         List<Person> result = personRepository.findByYearOfBirthday(1992);
         result.forEach(System.out::println);
     }
+
 
 }

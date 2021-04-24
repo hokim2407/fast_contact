@@ -14,14 +14,13 @@ class PersonRepositoryTest {
     void crud(){
         Person person = new Person();
         person.setName("martin");
-        person.setAge(10);
         personRepository.save(person);
         System.out.println(personRepository.findAll());
     }
     @Test
     void hashCodeAndEquals(){
-    Person person1 = new Person("martin",10,"A");
-    Person person2 = new Person("martin",10,"A");
+    Person person1 = new Person("martin");
+    Person person2 = new Person("martin");
         System.out.println(person1.equals(person2));
     }
 }
